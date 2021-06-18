@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <ng-container *ngFor="let ghe of mangGhe let index=index">
+                <app-ghe [chair]="ghe" (eventBooking)="datGhe($event)"></app-ghe>
+                <br *ngIf="(index+1) %4=== 0">
+            </ng-container>
+
+        </div>
+        <div class="col-md-6">
+            <h3>Danh sách ghế đã đặt({{danhSachGheDaDat.length}})</h3>
+            <h5>Tổng tiền: {{tongTien()}}</h5>
+            <div *ngFor="let gheDat of danhSachGheDaDat">Ghế: {{gheDat.TenGhe}} ${{gheDat.Gia}}
+                <button class="btn" (click)="huyDatGhe(gheDat)">[Hủy]</button>
+            </div>
+        </div>
+    </div>
+</div>
